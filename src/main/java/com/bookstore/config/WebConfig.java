@@ -28,13 +28,14 @@ public class WebConfig {
 
         resolver.setApplicationContext(applicationContext);
 
-        resolver.setPrefix("/webapp/WEB-INF/templates");
+        resolver.setPrefix("/WEB-INF/templates/");
         resolver.setSuffix(".html");
         resolver.setCharacterEncoding("UTF-8");
 
         return resolver;
     }
 
+    @Bean
     public SpringTemplateEngine templateEngine(){
         SpringTemplateEngine engine = new SpringTemplateEngine();
 
@@ -45,6 +46,7 @@ public class WebConfig {
         return engine;
     }
 
+    @Bean
     public ThymeleafViewResolver viewResolver(){
         ThymeleafViewResolver resolver = new ThymeleafViewResolver();
 

@@ -1,21 +1,43 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Danh sách sách</title>
 </head>
+
 <body>
 
-<div th:replace="fragments/header :: header('Chi tiết sách')"></div>
+<div th:replace="fragments/header :: header('Danh sách sách')"></div>
 
-<p>ID: <span th:text="${book.id}"></span></p>
-<p>Tên: <span th:text="${book.name}"></span></p>
-<p>Tác giả: <span th:text="${book.author}"></span></p>
-<p>Giá: <span th:text="${book.price}"></span></p>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Tên</th>
+    <th>Tác giả</th>
+    <th>Giá</th>
+  </tr>
 
-<a th:href="@{/books}">← Quay lại</a>
+  <tr th:each="b : ${books}"
+      th:classappend="${b.price >= 300000} ? 'highlight'">
+
+    <td th:text="${b.id}"></td>
+    <td>
+      <a th:href="@{/books/{id}(id=${b.id})}"
+         th:text="${b.name}"></a>
+    </td>
+    <td th:text="${b.author}"></td>
+    <td th:text="${b.price}"></td>
+  </tr>
+</table>
 
 <div th:replace="fragments/footer :: footer"></div>
+
+<style>
+  .highlight {
+    background-color: yellow;
+    font-weight: bold;
+  }
+</style>
 
 </body>
 </html>
