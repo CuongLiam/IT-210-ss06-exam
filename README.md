@@ -160,9 +160,9 @@ resources/templates (Spring Boot only)
 
 ## 👨‍💻 Tác giả
 
-* Họ tên: [Điền tên bạn]
-* Lớp: [Tên lớp]
-* Repo: [Link GitHub]
+* Họ tên: CuongLiam
+* Lớp: CNTT1
+* Repo: https://github.com/CuongLiam/IT-210-ss06-exam
 
 ---
 
